@@ -131,7 +131,8 @@ export type XPath =
   | `//XCUIElementTypeAlert//*//XCUIElementTypeButton`
   | `(//XCUIElementTypeImage[@name="gif cell"])[1]`
   | `//XCUIElementTypeCell[@name="${string}"]`
-  | `/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.appcompat.widget.LinearLayoutCompat/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView[2]`;
+  | `/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.appcompat.widget.LinearLayoutCompat/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView[2]`
+  | `//XCUIElementTypeStaticText[@name="Paste"]`
 
 export type AccessibilityId =
   | 'Create account button'
@@ -307,13 +308,20 @@ export type AccessibilityId =
   | 'Recovery password menu item'
   | 'Hide recovery password button'
   | 'Hide Recovery Password Permanently'
+  | 'Invite friend button'
+  | 'Share button'
+  | 'Copy'
   | 'Modal heading'
   | 'Modal description'
   | 'Continue'
   | 'Yes'
   | 'Disappearing messages type and time'
   | 'Confirm'
-  | 'Delete';
+  | 'Delete'
+  | 'doc.on.doc'
+  | 'Search button'
+  | 'Note to Self'
+  | 'X';
 
 export type Id =
   | 'Modal heading'
@@ -345,4 +353,5 @@ export type Id =
   | 'network.loki.messenger:id/openGroupTitleTextView'
   | 'Image picker'
   | 'network.loki.messenger:id/action_apply'
-  | 'Save';
+  | 'Save'
+  | 'android:id/content_preview_text';
