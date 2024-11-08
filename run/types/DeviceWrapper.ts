@@ -30,6 +30,11 @@ import {
   XPath,
   isDisappearingControlMessage,
 } from './testing';
+import * as fs from 'fs'
+import * as path from 'path'
+import { Monitor, Window } from 'node-screenshots';
+import { execSync } from 'child_process';
+
 
 export type Coordinates = {
   x: number;
@@ -161,6 +166,56 @@ export class DeviceWrapper {
   public async getElementScreenshot(elementId: string): Promise<string> {
     return this.toShared().getElementScreenshot(elementId);
   }
+  
+  // Method to capture the entire screen or specific monitor displaying the Simulator or Emulator
+  public async captureScreen(testTitle: string): Promise<void> {
+    try {
+      const screenshotsDir = path.resolve(__dirname, 'screenshots');
+      if (!fs.existsSync(screenshotsDir)) {
+        fs.mkdirSync(screenshotsDir, { recursive: true });
+      }
+
+      const screenshotPath = path.join(
+        screenshotsDir,
+        `${testTitle.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_${Date.now()}.png`
+      );
+      let monitors = Monitor.all();
+
+      // CONTINUE HERE: focus application and fix the delay 
+      // Find the target window for Simulator or Emulator
+      execSync(`osascript -e 'tell application "Simulator" to activate'
+        delay 0.5`);
+      console.log("Simulator window brought to the foreground");
+      const targetWindow = Window.all().find(win => win.title.includes("iPhone") || win.title.includes("Android Emulator"));
+      if (targetWindow) {
+        console.log(`Found target window: ${targetWindow.title}`);
+        console.log("Target window:", targetWindow.x, targetWindow.y);
+        // Manually find the monitor containing the target window based on coordinates
+        const monitor = monitors.find(m =>
+          targetWindow.x >= m.x &&
+          targetWindow.x < m.x + m.width &&
+          targetWindow.y >= m.y &&
+          targetWindow.y < m.y + m.height
+        );
+        if (monitor) {
+          console.log("Identified Monitor:", monitor);
+          const image = monitor.captureImageSync();
+          console.log("Image:", image)
+
+          // Convert `image` to a PNG buffer using `toPngSync()` before saving
+          fs.writeFileSync(screenshotPath, image.toPngSync());
+          console.info(`Screenshot captured for "${testTitle}" at ${screenshotPath}`);
+        } else {
+          throw new Error("Failed to determine which monitor the Simulator/Emulator window is on.");
+        }
+      } else {
+        throw new Error("Simulator or Emulator window not found.");
+      }
+    } catch (error) {
+      console.error(`Failed to capture screen for "${testTitle}":`, error);
+    }
+  }
+
 
   // Session management
   public async createSession(caps: W3CCapabilities): Promise<[string, Record<string, any>]> {

@@ -30,3 +30,17 @@ playwright.config.js
 test-results/
 output/
 dist/
+run/types/screenshots/display_2.png
+run/types/screenshots/display_3.png
+run/types/screenshots/onboarding_long_name_ios_1731044765418.png
+run/types/screenshots/onboarding_long_name_ios_1731044934816.png
+run/types/screenshots/onboarding_long_name_ios_1731045044328.png
+run/types/screenshots/onboarding_long_name_ios_1731045106382.png
+run/types/screenshots/onboarding_long_name_ios_1731045264005.png
+run/types/screenshots/onboarding_long_name_ios_1731045321658.png
+run/types/screenshots/onboarding_long_name_ios_1731045366227.png
+run/types/screenshots/onboarding_long_name_ios_1731045407146.png
+run/types/screenshots/onboarding_long_name_ios_1731045608194.png
+run/types/screenshots/onboarding_long_name_ios_1731045648725.png
+run/types/screenshots/onboarding_long_name_ios_1731045710482.png
+run/types/screenshots/simulator_display.png

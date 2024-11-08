@@ -10,6 +10,9 @@ import type {
 } from '@playwright/test/reporter';
 import chalk from 'chalk';
 import { Dictionary, groupBy, isString, mean, sortBy } from 'lodash';
+import { DeviceWrapper } from './run/types/DeviceWrapper';
+import AndroidUiautomator2Driver from 'appium-uiautomator2-driver';
+import XCUITestDriver from 'appium-xcuitest-driver/build/lib/driver';
 
 type TestAndResult = { test: TestCase; result: TestResult };
 
@@ -77,6 +80,16 @@ class SessionReporter implements Reporter {
   private allTestsCount = 0;
   private allResults: Array<TestAndResult> = [];
   private countWorkers = 1;
+  private deviceWrapper: DeviceWrapper;
+
+  constructor(device: AndroidUiautomator2Driver | XCUITestDriver, udid: string) {
+    // Log the device object to check what’s being passed in
+    console.log("Device passed to SessionReporter:", JSON.stringify(device, null, 2));
+    console.log("Device constructor name:", device.constructor.name); // Logs the class name of `device`
+
+    this.deviceWrapper = new DeviceWrapper(device, udid);
+  }
+  
 
   onBegin(config: FullConfig, suite: Suite) {
     this.allTestsCount = suite.allTests().length;
@@ -96,13 +109,14 @@ class SessionReporter implements Reporter {
     );
   }
 
-  onTestEnd(test: TestCase, result: TestResult) {
+  async onTestEnd(test: TestCase, result: TestResult) {
     if (result.status !== 'passed') {
       console.log(
         `${getChalkColorForStatus(result)(
           `\t\tFinished test "${test.title}": ${result.status} with stdout/stderr`
         )}`
       );
+
       if (printFailedTestLogs()) {
         console.info(`stdout:`);
         result.stdout.map(t => process.stdout.write(t.toString()));
@@ -117,6 +131,13 @@ class SessionReporter implements Reporter {
       console.info(
         `test failed with "${lastError?.message || 'unknown'}"\n\tsnippet:${lastError?.snippet || 'unknown'} \n\tstack:${lastError?.stack || 'unknown'}`
       );
+      // Capture screenshot on failure
+      try {
+        await this.deviceWrapper.captureScreen(test.title);
+        console.info(`Screenshot captured for failed test "${test.title}".`);
+      } catch (error) {
+        console.error(`Failed to capture screenshot for "${test.title}":`, error);
+      }
     } else {
       console.log(
         `${getChalkColorForStatus(result)(`\t\tFinished test "${test.title}": ${result.status}`)}`

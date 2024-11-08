@@ -8,7 +8,7 @@ bothPlatformsIt('Onboarding long name', onboardingLongName);
 // the libSession limit for display names is 100 bytes - this string is 101 chars (i.e. 101 bytes)
 const tooLongName = 'One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed int';
 // the expected error is 'Please enter a shorter display name' which is represented by the following localized string
-const expectedError = localize('displayNameErrorDescriptionShorter').strip().toString();
+const expectedError = localize('removePasswordFail').strip().toString();
 
 async function onboardingLongName(platform:SupportedPlatformsType) {
   const { device } = await openAppOnPlatformSingleDevice(platform);
@@ -20,6 +20,7 @@ async function onboardingLongName(platform:SupportedPlatformsType) {
   await device.inputText(tooLongName, new DisplayNameInput(device));
   // Trigger the validation by pressing Continue
   await device.clickOnElementAll(new ContinueButton(device));
+  // await device.captureScreenshot('Onboarding');
   // Wait for, and fetch the error message 
   const error = await device.waitForTextElementToBePresent(new ErrorMessage(device).build());
   const errorMessage = await device.getTextFromElement(error);
