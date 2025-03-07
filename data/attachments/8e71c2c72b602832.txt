@@ -1,0 +1,716 @@
+
+
+==========> Running "Landing page new account ios @low-risk"
+
+
+setting env var to platform
+Created environment.properties with content:
+platform=ios
+
+starting capabilitiesIndex 0 ios
+openiOSApp
+doesElementExist failed with xpath //XCUIElementTypeAlert//*//XCUIElementTypeButton
+Sleeping for 100 milliseconds
+//XCUIElementTypeAlert//*//XCUIElementTypeButton Doesn't exist but retrying
+doesElementExist failed with xpath //XCUIElementTypeAlert//*//XCUIElementTypeButton
+Sleeping for 100 milliseconds
+//XCUIElementTypeAlert//*//XCUIElementTypeButton  doesn't exist, time expired
+iosPermissions null
+No iosPermissions null
+running  xcrun simctl privacy 3CD63B0E-2012-453D-BE56-2C540BFB8166 reset all undefined
+was run:  xcrun simctl privacy 3CD63B0E-2012-453D-BE56-2C540BFB8166 reset all undefined { stdout: '', stderr: '' }
+Create account button Doesn't exist but retrying
+Waiting for accessibility id and Create account button to be present
+'Create account button' has been found
+Locator being used: { strategy: 'accessibility id', selector: 'Enter display name' }
+Waiting for accessibility id and Enter display name to be present
+'Enter display name' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present
+waitForTextElementToBePresent threw:  accessibility id: 'Continue'
+Sleeping for 100 milliseconds
+'Continue' has been found
+Waiting for accessibility id and Continue to be present

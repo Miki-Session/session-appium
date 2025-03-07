@@ -11,6 +11,9 @@ starting capabilitiesIndex 0 ios
 openiOSApp
 doesElementExist failed with xpath //XCUIElementTypeAlert//*//XCUIElementTypeButton
 Sleeping for 100 milliseconds
+//XCUIElementTypeAlert//*//XCUIElementTypeButton Doesn't exist but retrying
+doesElementExist failed with xpath //XCUIElementTypeAlert//*//XCUIElementTypeButton
+Sleeping for 100 milliseconds
 //XCUIElementTypeAlert//*//XCUIElementTypeButton  doesn't exist, time expired
 iosPermissions null
 No iosPermissions null
