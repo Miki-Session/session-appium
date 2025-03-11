@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","84862","Onboarding privacy policy ios @high-risk","","Tue Mar 11 11:07:29 AEDT 2025","passed","Tue Mar 11 11:08:54 AEDT 2025","","onboarding_pp.spec.ts","",""
+"","38294","Landing page new account ios @low-risk","","Tue Mar 11 11:09:10 AEDT 2025","passed","Tue Mar 11 11:09:48 AEDT 2025","","landing_page_new_account.spec.ts","",""
