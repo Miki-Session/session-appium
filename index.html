@@ -61,7 +61,7 @@
       const li = document.createElement('li');
       const a = document.createElement('a');
       // Assuming each archived report has an index.html at the root of its folder.
-      a.href = `./${folderName}/index.html`;
+      a.href = `.${pathInRepo}/${folderName}/index.html`;
       a.target = '_blank';
       a.textContent = folderName;
       li.appendChild(a);
