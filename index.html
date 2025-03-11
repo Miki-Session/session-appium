@@ -35,7 +35,6 @@
 </head>
 <body>
   <h1>Archived Allure Reports</h1>
-  <p>Loading archived reports...</p>
   <ul id="reportList"></ul>
 
   <script>
@@ -73,7 +72,7 @@
       .then(response => response.json())
       .then(data => {
         const reportList = document.getElementById('reportList');
-        reportList.innerHTML = ''; // Clear the "loading" message
+        reportList.innerHTML = '';
 
         if (!Array.isArray(data)) {
           reportList.innerHTML = '<li>Error: Unexpected data format.</li>';
