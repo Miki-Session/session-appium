@@ -21,6 +21,7 @@ chromeDriver
 run/**/*.js
 *.js.map
 *.js
+!/reports/**/*.js
 run/test/specs/to do
 to do
 .vscode/
