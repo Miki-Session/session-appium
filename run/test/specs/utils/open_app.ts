@@ -303,6 +303,10 @@ const openiOSApp = async (
   const capabilities = getIosCapabilities(actualCapabilitiesIndex as CapabilitiesIndexType);
   const udid = capabilities.alwaysMatch['appium:udid'] as string;
 
+  // Simulators are cleared on start of a test run because you can't erase booted simulators
+  // If a simulator is already running this fails silently
+  await runScriptAndLog(`xcrun simctl erase ${udid}`);
+
   const { device: wrappedDevice } = await cleanPermissions(opts, udid, capabilities);
   return { device: wrappedDevice };
 };
