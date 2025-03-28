@@ -254,6 +254,7 @@ export type AccessibilityId =
   | 'profile_picture.jpg, 27.75 kB, May 1, 1998'
   | 'Photo taken on May 2, 1999 7:00:00 AM'
   | 'Photo, 01 May 1998, 7:00 am'
+  | 'Photo, 01 May 1998, 7:00 AM'
   | '1988-09-08 21:00:00 +0000'
   | 'Attachments button'
   | 'Documents folder'
@@ -288,7 +289,7 @@ export type AccessibilityId =
   | 'Add'
   | 'Community invitation'
   | 'Link preview'
-  | 'test_file, pdf'
+  | 'sample, pdf'
   | 'Show roots'
   | 'Conversation header name'
   | 'Invite'
@@ -344,7 +345,10 @@ export type AccessibilityId =
   | '1967-05-06 07:00:00 +0000'
   | '1967-05-05 20:00:00 +0000'
   | '1967-05-05 21:00:00 +0000'
-  | 'Pin';
+  | 'Pin'
+  | 'ShareButton'
+  | 'Save to Files'
+  | 'Replace';
 
 export type Id =
   | 'Modal heading'

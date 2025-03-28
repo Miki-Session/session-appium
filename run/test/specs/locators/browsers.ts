@@ -62,3 +62,55 @@ export class SafariAddressBar extends LocatorsInterface {
     }
   }
 }
+export class SafariShareButton extends LocatorsInterface {
+  public build() {
+    switch (this.platform) {
+      case 'android':
+        throw new Error('Unsupported platform');
+      case 'ios':
+        return {
+          strategy: 'accessibility id',
+          selector: 'ShareButton',
+        } as const;
+    }
+  }
+}
+export class SafariSaveToFiles extends LocatorsInterface {
+  public build() {
+    switch (this.platform) {
+      case 'android':
+        throw new Error('Unsupported platform');
+      case 'ios':
+        return {
+          strategy: 'accessibility id',
+          selector: 'Save to Files',
+        } as const;
+    }
+  }
+}
+export class SafariSaveButton extends LocatorsInterface {
+  public build() {
+    switch (this.platform) {
+      case 'android':
+        throw new Error('Unsupported platform');
+      case 'ios':
+        return {
+          strategy: 'accessibility id',
+          selector: 'Save',
+        } as const;
+    }
+  }
+}
+export class SafariReplaceButton extends LocatorsInterface {
+  public build() {
+    switch (this.platform) {
+      case 'android':
+        throw new Error('Unsupported platform');
+      case 'ios':
+        return {
+          strategy: 'accessibility id',
+          selector: 'Replace',
+        } as const;
+    }
+  }
+}
