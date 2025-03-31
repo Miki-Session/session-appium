@@ -41,6 +41,7 @@ import {
   SafariSaveToFiles,
   SafariShareButton,
 } from '../test/specs/locators/browsers';
+import { AttachmentsButton } from '../test/specs/locators/conversation';
 
 export type Coordinates = {
   x: number;
@@ -1091,14 +1092,14 @@ export class DeviceWrapper {
   public async pushMediaToDevice(mediaFileName: string, forcedDate?: string) {
     const filePath = path.join('run', 'test', 'specs', 'media', mediaFileName);
     if (this.isIOS()) {
-      // Simulators are cleared on start of a test run because you can't erase booted simulators
+      // iOS Simulators are cleared on start of a test run because you can't erase booted simulators
       // Modify timestamp of local file because iOS uses that as an identifier
       await runScriptAndLog(`touch -a -m -t ${forcedDate} ${filePath}`);
       // Push local file to current device
       await runScriptAndLog(`xcrun simctl addmedia ${this.udid} ${filePath}`, true);
     } else {
       const ANDROID_DOWNLOAD_DIR = '/storage/emulated/0/Download';
-      // Clear downloads folder
+      // Android allows clearing the downloads folder at runtime
       await runScriptAndLog(
         `${getAdbFullPath()} -s emulator-5554 shell rm -rf ${ANDROID_DOWNLOAD_DIR}/*`,
         true
@@ -1116,13 +1117,13 @@ export class DeviceWrapper {
     }
   }
   // TODO: add locator classes
-  public async sendImage(platform: SupportedPlatformsType, message?: string, community?: boolean) {
+  public async sendImage(message?: string) {
     const forcedDate = '196705060700.00'; // Ron Swanson's birthday
     const forcedAccessibilityID = '1967-05-05 21:00:00 +0000';
-    if (platform === 'ios') {
+    if (this.isIOS()) {
       // Push file first
       await this.pushMediaToDevice(testImage, forcedDate);
-      await this.clickOnByAccessibilityID('Attachments button');
+      await this.clickOnElementAll(new AttachmentsButton(this));
       await sleepFor(5000);
       const keyboard = await this.isKeyboardVisible();
       if (keyboard) {
@@ -1143,67 +1144,50 @@ export class DeviceWrapper {
         selector: 'Message sent status: Sent',
         maxWait: 50000,
       });
-    } else {
+    }
+    if (this.isAndroid()) {
       // Push file first
       await this.pushMediaToDevice(testImage);
-      await this.clickOnByAccessibilityID('Attachments button');
+      await this.clickOnElementAll(new AttachmentsButton(this));
       await sleepFor(100);
-      await this.clickOnByAccessibilityID('Documents folder');
-      await this.clickOnByAccessibilityID('Continue');
+      await this.clickOnByAccessibilityID('Images folder');
       await this.clickOnElementAll({
         strategy: 'id',
-        selector: 'com.android.permissioncontroller:id/permission_allow_button',
-        text: 'Allow',
+        selector: 'com.android.permissioncontroller:id/permission_allow_all_button',
+        text: 'Allow all',
       });
-      await this.clickOnByAccessibilityID('Show roots');
-      await sleepFor(100);
-      await this.clickOnTextElementById(`android:id/title`, 'Downloads');
-      await sleepFor(100);
-      await this.clickOnTextElementById('android:id/title', testImage);
-      if (community) {
-        await this.scrollToBottom();
-      }
-      await this.waitForTextElementToBePresent({
-        strategy: 'accessibility id',
-        selector: `Message sent status: Sent`,
-        maxWait: 60000,
+      await sleepFor(500);
+      await this.clickOnElementAll({
+        strategy: 'id',
+        selector: 'network.loki.messenger:id/mediapicker_folder_item_thumbnail',
       });
+      await sleepFor(100);
+      await this.clickOnElementAll({
+        strategy: 'id',
+        selector: 'network.loki.messenger:id/mediapicker_image_item_thumbnail',
+      });
+      if (message)
+        await this.inputText(message, {
+          strategy: 'accessibility id',
+          selector: 'New direct message',
+        });
+      await this.clickOnElementAll(new SendMediaButton(this));
+      await this.scrollToBottom();
     }
-  }
-  // TODO add locator classes
-  public async sendImageWithMessageAndroid(message: string) {
-    await this.pushMediaToDevice(testImage);
-    await this.clickOnByAccessibilityID('Attachments button');
-    await sleepFor(100);
-    await this.clickOnByAccessibilityID('Images folder');
-    await this.clickOnElementAll({
-      strategy: 'id',
-      selector: 'com.android.permissioncontroller:id/permission_allow_all_button',
-      text: 'Allow all',
-    });
-    await sleepFor(500);
-    await this.clickOnElementAll({
-      strategy: 'id',
-      selector: 'network.loki.messenger:id/mediapicker_folder_item_thumbnail',
-    });
-    await sleepFor(100);
-    await this.clickOnElementAll({
-      strategy: 'id',
-      selector: 'network.loki.messenger:id/mediapicker_image_item_thumbnail',
-    });
-    await this.inputText(message, {
+    await this.waitForTextElementToBePresent({
       strategy: 'accessibility id',
-      selector: 'New direct message',
+      selector: `Message sent status: Sent`,
+      maxWait: 60000,
     });
-    await this.clickOnElementAll(new SendMediaButton(this));
   }
+
   public async sendVideoiOS(message: string) {
     // Force accessibility ID by forcing custom file date
     // TODO maybe write a date to accessibilityid util function
     const forcedDate = `198809090700.00`;
     const forcedAccessibilityID = `1988-09-08 21:00:00 +0000`;
     await this.pushMediaToDevice(testVideo, forcedDate);
-    await this.clickOnByAccessibilityID('Attachments button');
+    await this.clickOnElementAll(new AttachmentsButton(this));
     // Select images button/tab
     await sleepFor(5000);
     const keyboard = await this.isKeyboardVisible();
@@ -1235,7 +1219,7 @@ export class DeviceWrapper {
     // Push first
     await this.pushMediaToDevice(testVideo);
     // Click on attachments button
-    await this.clickOnByAccessibilityID('Attachments button');
+    await this.clickOnElementAll(new AttachmentsButton(this));
     await sleepFor(100);
     // Select images button/tab
     await this.clickOnByAccessibilityID('Documents folder');
@@ -1257,7 +1241,7 @@ export class DeviceWrapper {
   public async sendDocument() {
     if (this.isAndroid()) {
       await this.pushMediaToDevice(testFile);
-      await this.clickOnByAccessibilityID('Attachments button');
+      await this.clickOnElementAll(new AttachmentsButton(this));
       await this.clickOnByAccessibilityID('Documents folder');
       await this.clickOnByAccessibilityID('Continue');
       await this.clickOnElementAll({
@@ -1289,7 +1273,7 @@ export class DeviceWrapper {
       // Close Safari to go back to Session
       await this.clickOnCoordinates(42, 42); // I hate this but nothing else works
       // Finally, we send the file
-      await this.clickOnByAccessibilityID('Attachments button');
+      await this.clickOnElementAll(new AttachmentsButton(this));
       await sleepFor(100);
       await clickOnCoordinates(this, InteractionPoints.DocumentKeyboardOpen);
       await this.modalPopup({ strategy: 'accessibility id', selector: 'Allow Full Access' });
@@ -1306,7 +1290,7 @@ export class DeviceWrapper {
   }
 
   public async sendGIF(message: string) {
-    await this.clickOnByAccessibilityID('Attachments button');
+    await this.clickOnElementAll(new AttachmentsButton(this));
     if (this.isAndroid()) {
       await this.clickOnElementAll({ strategy: 'accessibility id', selector: 'GIF button' });
     }

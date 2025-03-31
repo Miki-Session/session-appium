@@ -16,7 +16,7 @@ async function sendImageIos(platform: SupportedPlatformsType) {
   const testMessage = "Ron Swanson doesn't like birthdays";
 
   await newContact(platform, device1, userA, device2, userB);
-  await device1.sendImage(platform, testMessage);
+  await device1.sendImage(testMessage);
   await device2.trustAttachments(userA.userName);
   // Reply to message
   await device2.waitForTextElementToBePresent({
@@ -44,7 +44,7 @@ async function sendImageAndroid(platform: SupportedPlatformsType) {
   // Create contact
   await newContact(platform, device1, userA, device2, userB);
   // Send test image to bob from Alice (device 1)
-  await device1.sendImageWithMessageAndroid(testMessage);
+  await device1.sendImage(testMessage);
   // Trust message on device 2 (bob)
   await device2.trustAttachments(userA.userName);
   await device2.waitForTextElementToBePresent({

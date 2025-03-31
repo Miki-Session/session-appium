@@ -76,3 +76,11 @@ export class Hide extends LocatorsInterface {
     }
   }
 }
+export class AttachmentsButton extends LocatorsInterface {
+  public build() {
+    return {
+      strategy: 'accessibility id',
+      selector: 'Attachments button',
+    } as const;
+  }
+}
