@@ -21,8 +21,7 @@ async function disappearingVideoMessage1o1(platform: SupportedPlatformsType) {
   ]);
   await newContact(platform, device1, userA, device2, userB);
   await setDisappearingMessage(platform, device1, ['1:1', timerType, time], device2);
-  await device1.onIOS().sendVideoiOS(testMessage);
-  await device1.onAndroid().sendVideoAndroid();
+  await device1.sendVideo(testMessage);
   await device2.trustAttachments(USERNAME.ALICE);
   await device2.onIOS().waitForTextElementToBePresent({
     strategy: 'accessibility id',

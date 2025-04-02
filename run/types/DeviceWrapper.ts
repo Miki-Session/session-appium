@@ -1235,19 +1235,6 @@ export class DeviceWrapper {
   }
   // TODO add locator classes
   public async sendDocument() {
-    if (this.isAndroid()) {
-      await this.pushMediaToDevice(testFile);
-      await this.clickOnElementAll(new AttachmentsButton(this));
-      await this.clickOnByAccessibilityID('Documents folder');
-      await this.clickOnByAccessibilityID('Continue');
-      await this.clickOnElementAll({
-        strategy: 'id',
-        selector: 'com.android.permissioncontroller:id/permission_allow_button',
-        text: 'Allow',
-      });
-      await sleepFor(1000);
-      await this.clickOnTextElementById('android:id/title', testFile);
-    }
     if (this.isIOS()) {
       const formattedFileName = 'sample, pdf';
       const testMessage = 'Testing-document-1';
@@ -1277,6 +1264,19 @@ export class DeviceWrapper {
         selector: 'Text input box',
       });
       await this.clickOnByAccessibilityID('Send button');
+    }
+    if (this.isAndroid()) {
+      await this.pushMediaToDevice(testFile);
+      await this.clickOnElementAll(new AttachmentsButton(this));
+      await this.clickOnByAccessibilityID('Documents folder');
+      await this.clickOnByAccessibilityID('Continue');
+      await this.clickOnElementAll({
+        strategy: 'id',
+        selector: 'com.android.permissioncontroller:id/permission_allow_button',
+        text: 'Allow',
+      });
+      await sleepFor(1000);
+      await this.clickOnTextElementById('android:id/title', testFile);
     }
     // Checking Sent status on both platforms
     await this.waitForTextElementToBePresent({

@@ -22,7 +22,7 @@ async function sendVideoIos(platform: SupportedPlatformsType) {
   await newContact(platform, device1, userA, device2, userB);
   // Push image to device for selection
   // Click on attachments button
-  await device1.sendVideoiOS(testMessage);
+  await device1.sendVideo(testMessage);
   // Check if the 'Tap to download media' config appears
   // User B - Click on untrusted attachment message
   await device2.trustAttachments(userA.userName);
@@ -55,7 +55,7 @@ async function sendVideoAndroid(platform: SupportedPlatformsType) {
   // create contact
   await newContact(platform, device1, userA, device2, userB);
   // Send video
-  await device1.sendVideoAndroid();
+  await device1.sendVideo();
   // User B - Click on untrusted attachment message
   await device2.trustAttachments(userA.userName);
   await device2.waitForTextElementToBePresent({

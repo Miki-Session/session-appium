@@ -21,7 +21,7 @@ async function sendVideoGroupiOS(platform: SupportedPlatformsType) {
   await createGroup(platform, device1, userA, device2, userB, device3, userC, testGroupName);
   const testMessage = 'Testing-video-1';
   const replyMessage = `Replying to video from ${userA.userName} in ${testGroupName}`;
-  await device1.sendVideoiOS(testMessage);
+  await device1.sendVideo(testMessage);
   await device2.waitForTextElementToBePresent({
     strategy: 'accessibility id',
     selector: 'Message body',
@@ -70,7 +70,7 @@ async function sendVideoGroupAndroid(platform: SupportedPlatformsType) {
   await createGroup(platform, device1, userA, device2, userB, device3, userC, testGroupName);
   const replyMessage = `Replying to video from ${userA.userName} in ${testGroupName}`;
   // Click on attachments button
-  await device1.sendVideoAndroid();
+  await device1.sendVideo();
   await Promise.all([
     device2.trustAttachments(testGroupName),
     device3.trustAttachments(testGroupName),

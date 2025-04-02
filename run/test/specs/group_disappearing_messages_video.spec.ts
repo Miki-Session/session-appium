@@ -23,8 +23,7 @@ async function disappearingVideoMessageGroup(platform: SupportedPlatformsType) {
   ]);
   await createGroup(platform, device1, userA, device2, userB, device3, userC, testGroupName);
   await setDisappearingMessage(platform, device1, ['Group', timerType, time]);
-  await device1.onIOS().sendVideoiOS(testMessage);
-  await device1.onAndroid().sendVideoAndroid();
+  await device1.sendVideo(testMessage);
   await sleepFor(30000);
   await Promise.all([
     device1.hasElementBeenDeleted({
