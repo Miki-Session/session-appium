@@ -84,3 +84,12 @@ export class AttachmentsButton extends LocatorsInterface {
     } as const;
   }
 }
+
+export class OutgoingMessageStatusSent extends LocatorsInterface {
+  public build() {
+    return {
+      strategy: 'accessibility id',
+      selector: `Message sent status: Sent`,
+    } as const;
+  }
+}
