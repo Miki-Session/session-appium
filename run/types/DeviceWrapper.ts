@@ -41,7 +41,7 @@ import {
   SafariSaveToFiles,
   SafariShareButton,
 } from '../test/specs/locators/browsers';
-import { AttachmentsButton } from '../test/specs/locators/conversation';
+import { AttachmentsButton, OutgoingMessageStatusSent } from '../test/specs/locators/conversation';
 
 export type Coordinates = {
   x: number;
@@ -1097,30 +1097,33 @@ export class DeviceWrapper {
       await runScriptAndLog(`touch -a -m -t ${forcedDate} ${filePath}`);
       // Push local file to current device
       await runScriptAndLog(`xcrun simctl addmedia ${this.udid} ${filePath}`, true);
-    } else {
-      const ANDROID_DOWNLOAD_DIR = '/storage/emulated/0/Download';
-      // Android allows clearing the downloads folder at runtime
-      await runScriptAndLog(
-        `${getAdbFullPath()} -s emulator-5554 shell rm -rf ${ANDROID_DOWNLOAD_DIR}/*`,
-        true
-      );
-      // Push file
-      await runScriptAndLog(
-        `${getAdbFullPath()} -s emulator-5554 push ${filePath} ${ANDROID_DOWNLOAD_DIR}`,
-        true
-      );
-      // Refresh the Downloads UI to ensure attachment is visible
-      await runScriptAndLog(
-        `${getAdbFullPath()} -s emulator-5554 shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file://${ANDROID_DOWNLOAD_DIR}/${mediaFileName}`,
-        true
-      );
+      if (this.isAndroid()) {
+        const ANDROID_DOWNLOAD_DIR = '/storage/emulated/0/Download';
+        // Android allows clearing the downloads folder at runtime
+        await runScriptAndLog(
+          `${getAdbFullPath()} -s emulator-5554 shell rm -rf ${ANDROID_DOWNLOAD_DIR}/*`,
+          true
+        );
+        // Push file
+        await runScriptAndLog(
+          `${getAdbFullPath()} -s emulator-5554 push ${filePath} ${ANDROID_DOWNLOAD_DIR}`,
+          true
+        );
+        // Refresh the Downloads UI to ensure attachment is visible
+        await runScriptAndLog(
+          `${getAdbFullPath()} -s emulator-5554 shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file://${ANDROID_DOWNLOAD_DIR}/${mediaFileName}`,
+          true
+        );
+      }
     }
   }
-  // TODO: add locator classes
+  // TODO add locator classes
+  // TODO write a function that converts forcedDate to forcedAccessibilityID
   public async sendImage(message?: string) {
-    const forcedDate = '196705060700.00'; // Ron Swanson's birthday
-    const forcedAccessibilityID = '1967-05-05 21:00:00 +0000';
     if (this.isIOS()) {
+      // Force accessibility ID by forcing custom file date
+      const forcedDate = '196705060700.00'; // Ron Swanson's birthday
+      const forcedAccessibilityID = '1967-05-05 21:00:00 +0000'; // forcedDate in UTC (-10hrs)
       // Push file first
       await this.pushMediaToDevice(testImage, forcedDate);
       await this.clickOnElementAll(new AttachmentsButton(this));
@@ -1139,11 +1142,6 @@ export class DeviceWrapper {
         await this.inputText(message, { strategy: 'accessibility id', selector: 'Text input box' });
       }
       await this.clickOnElementAll(new SendMediaButton(this));
-      await this.waitForTextElementToBePresent({
-        strategy: 'accessibility id',
-        selector: 'Message sent status: Sent',
-        maxWait: 50000,
-      });
     }
     if (this.isAndroid()) {
       // Push file first
@@ -1174,66 +1172,64 @@ export class DeviceWrapper {
       await this.clickOnElementAll(new SendMediaButton(this));
       await this.scrollToBottom();
     }
+    // Checking Sent status on both platforms
     await this.waitForTextElementToBePresent({
-      strategy: 'accessibility id',
-      selector: `Message sent status: Sent`,
-      maxWait: 60000,
-    });
-  }
-
-  public async sendVideoiOS(message: string) {
-    // Force accessibility ID by forcing custom file date
-    // TODO maybe write a date to accessibilityid util function
-    const forcedDate = `198809090700.00`;
-    const forcedAccessibilityID = `1988-09-08 21:00:00 +0000`;
-    await this.pushMediaToDevice(testVideo, forcedDate);
-    await this.clickOnElementAll(new AttachmentsButton(this));
-    // Select images button/tab
-    await sleepFor(5000);
-    const keyboard = await this.isKeyboardVisible();
-    if (keyboard) {
-      await clickOnCoordinates(this, InteractionPoints.ImagesFolderKeyboardOpen);
-    } else {
-      await clickOnCoordinates(this, InteractionPoints.ImagesFolderKeyboardClosed);
-    }
-    await sleepFor(100);
-    await this.modalPopup({
-      strategy: 'accessibility id',
-      selector: 'Allow Full Access',
-      maxWait: 500,
-    });
-    await this.clickOnByAccessibilityID('Recents');
-    await this.clickOnByAccessibilityID('Videos');
-    await this.clickOnByAccessibilityID(forcedAccessibilityID);
-    await this.clickOnByAccessibilityID('Text input box');
-    await this.inputText(message, { strategy: 'accessibility id', selector: 'Text input box' });
-    await this.clickOnByAccessibilityID('Send button');
-    await this.waitForTextElementToBePresent({
-      strategy: 'accessibility id',
-      selector: `Message sent status: Sent`,
-      maxWait: 10000,
+      ...new OutgoingMessageStatusSent(this).build(),
+      maxWait: 50000,
     });
   }
   // TODO add locator classes
-  public async sendVideoAndroid() {
-    // Push first
-    await this.pushMediaToDevice(testVideo);
-    // Click on attachments button
-    await this.clickOnElementAll(new AttachmentsButton(this));
-    await sleepFor(100);
-    // Select images button/tab
-    await this.clickOnByAccessibilityID('Documents folder');
-    await this.clickOnByAccessibilityID('Continue');
-    await this.clickOnElementAll({
-      strategy: 'id',
-      selector: 'com.android.permissioncontroller:id/permission_allow_button',
-      text: 'Allow',
-    });
-    await sleepFor(200);
-    await this.clickOnTextElementById('android:id/title', testVideo);
+  public async sendVideo(message?: string) {
+    if (this.isIOS()) {
+      // Force accessibility ID by forcing custom file date
+      const forcedDate = `198809090700.00`;
+      const forcedAccessibilityID = `1988-09-08 21:00:00 +0000`; // forcedDate in UTC (-10hrs)
+      // Push first
+      await this.pushMediaToDevice(testVideo, forcedDate);
+      await this.clickOnElementAll(new AttachmentsButton(this));
+      // Select images button/tab
+      await sleepFor(5000);
+      const keyboard = await this.isKeyboardVisible();
+      if (keyboard) {
+        await clickOnCoordinates(this, InteractionPoints.ImagesFolderKeyboardOpen);
+      } else {
+        await clickOnCoordinates(this, InteractionPoints.ImagesFolderKeyboardClosed);
+      }
+      await sleepFor(100);
+      await this.modalPopup({
+        strategy: 'accessibility id',
+        selector: 'Allow Full Access',
+        maxWait: 500,
+      });
+      await this.clickOnByAccessibilityID('Recents');
+      await this.clickOnByAccessibilityID('Videos');
+      await this.clickOnByAccessibilityID(forcedAccessibilityID);
+      if (message) {
+        await this.clickOnByAccessibilityID('Text input box');
+        await this.inputText(message, { strategy: 'accessibility id', selector: 'Text input box' });
+      }
+      await this.clickOnByAccessibilityID('Send button');
+    }
+    if (this.isAndroid()) {
+      // Push first
+      await this.pushMediaToDevice(testVideo);
+      // Click on attachments button
+      await this.clickOnElementAll(new AttachmentsButton(this));
+      await sleepFor(100);
+      // Select images button/tab
+      await this.clickOnByAccessibilityID('Documents folder');
+      await this.clickOnByAccessibilityID('Continue');
+      await this.clickOnElementAll({
+        strategy: 'id',
+        selector: 'com.android.permissioncontroller:id/permission_allow_button',
+        text: 'Allow',
+      });
+      await sleepFor(200);
+      await this.clickOnTextElementById('android:id/title', testVideo);
+    }
+    // Checking Sent status on both platforms
     await this.waitForTextElementToBePresent({
-      strategy: 'accessibility id',
-      selector: `Message sent status: Sent`,
+      ...new OutgoingMessageStatusSent(this).build(),
       maxWait: 50000,
     });
   }
@@ -1251,11 +1247,6 @@ export class DeviceWrapper {
       });
       await sleepFor(1000);
       await this.clickOnTextElementById('android:id/title', testFile);
-      await this.waitForTextElementToBePresent({
-        strategy: 'accessibility id',
-        selector: `Message sent status: Sent`,
-        maxWait: 50000,
-      });
     }
     if (this.isIOS()) {
       const formattedFileName = 'sample, pdf';
@@ -1287,6 +1278,11 @@ export class DeviceWrapper {
       });
       await this.clickOnByAccessibilityID('Send button');
     }
+    // Checking Sent status on both platforms
+    await this.waitForTextElementToBePresent({
+      ...new OutgoingMessageStatusSent(this).build(),
+      maxWait: 50000,
+    });
   }
 
   public async sendGIF(message: string) {
@@ -1317,6 +1313,11 @@ export class DeviceWrapper {
       });
       await this.clickOnByAccessibilityID('Send button');
     }
+    // Checking Sent status on both platforms
+    await this.waitForTextElementToBePresent({
+      ...new OutgoingMessageStatusSent(this).build(),
+      maxWait: 50000,
+    });
   }
 
   public async sendVoiceMessage() {
